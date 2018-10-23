@@ -12,7 +12,8 @@
 
 Provide-Capability: \
 	osgi.serviceloader;\
-		osgi.serviceloader="javax.json.bind.spi.JsonbProvider"
+		osgi.serviceloader="javax.json.bind.spi.JsonbProvider";\
+		uses:="javax.enterprise.event,javax.json.bind.spi"
 Require-Capability: \
 	osgi.extender;\
 		filter:="(osgi.extender=osgi.serviceloader.registrar)"
