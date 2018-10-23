@@ -10,6 +10,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+Provide-Capability: \
+	osgi.serviceloader;\
+		osgi.serviceloader="javax.json.bind.spi.JsonbProvider"
+Require-Capability: \
+	osgi.extender;\
+		filter:="(osgi.extender=osgi.serviceloader.registrar)"
+
 -conditionalpackage: \
 	org.apache.aries.component.dsl.*,\
 	org.osgi.util.converter,\
@@ -17,4 +24,5 @@
 
 -includeresource:\
 	lib/johnzon-jaxrs.jar=johnzon-jaxrs-*.jar;lib:=true,\
-	lib/johnzon-jsonb.jar=johnzon-jsonb-*.jar;lib:=true
+	lib/johnzon-jsonb.jar=johnzon-jsonb-*.jar;lib:=true,\
+	META-INF/=@johnzon-jsonb-*.jar!/META-INF/services
